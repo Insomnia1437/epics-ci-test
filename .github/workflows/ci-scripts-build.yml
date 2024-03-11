@@ -44,14 +44,14 @@ jobs:
         - os: ubuntu-22.04
           cmp: gcc
           configuration: static
-          base: "7.0.7"
-          name: "7.0.7 Ub-22 gcc static"
+          base: "7.0"
+          name: "7.0 Ub-22 gcc static"
 
         - os: ubuntu-22.04
           cmp: gcc
           configuration: default
-          base: "7.0.7"
-          name: "7.0.7 Ub-22 gcc"
+          base: "7.0"
+          name: "7.0 Ub-22 gcc"
 
     steps:
     - uses: actions/checkout@v2
