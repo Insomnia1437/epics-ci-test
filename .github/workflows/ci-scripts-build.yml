@@ -54,7 +54,7 @@ jobs:
           name: "7.0 Ub-22 gcc"
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         submodules: true
     - name: Automatic core dumper analysis
@@ -70,10 +70,12 @@ jobs:
       run: python .ci/cue.py build
     - name: Run main module tests
       run: python .ci/cue.py test
-    - name: Upload tapfiles Artifact
-      uses: actions/upload-artifact@v2
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
       with:
-        name: tapfiles ${{ matrix.name }}
-        path: '**/O.*/*.tap'
+        name: my artifact ${{ matrix.name }}
+        path: |
+          db/*.db
+          lib/*
     - name: Collect and show test results
       run: python .ci/cue.py test-results
