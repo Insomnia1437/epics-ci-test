@@ -40,6 +40,7 @@ citest_DBD += dbSubExample.dbd
 citest_DBD += citestHello.dbd
 citest_DBD += initTrace.dbd
 
+citest_DBD += devIocStats.dbd
 # citest_registerRecordDeviceDriver.cpp derives from citest.dbd
 citest_SRCS += citest_registerRecordDeviceDriver.cpp
 
@@ -49,6 +50,7 @@ citest_SRCS_vxWorks += -nil-
 
 # Link in the code from our support library
 citest_LIBS += citestSupport
+citest_LIBS += devIocStats
 
 # To build SNL programs, SNCSEQ must be defined
 # in the <top>/configure/RELEASE file
