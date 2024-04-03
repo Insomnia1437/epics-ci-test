@@ -62,19 +62,25 @@ jobs:
           #   configuration: default
 
     steps:
+    - name: "Check node version"
+      run: |
+        yum -y install tree
+        node --version
+        ldd `which node`
+        tree -L 2 /__e/node20
     - name: "Build newer Git"
       # actions/checkout@v2 wants git >=2.18
       # centos:7 has 1.8
       if: matrix.image=='centos:7'
       run: |
         yum -y install curl make gcc curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-ExtUtils-MakeMaker
-        curl https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.29.0.tar.gz | tar -xz
-        cd git-*
-        make -j2 prefix=/usr/local all
-        make prefix=/usr/local install
-        cd ..
-        rm -rf git-*
-        type -a git
+        # curl https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.29.0.tar.gz | tar -xz
+        # cd git-*
+        # make -j2 prefix=/usr/local all
+        # make prefix=/usr/local install
+        # cd ..
+        # rm -rf git-*
+        # type -a git
         git --version
     - name: "Redhat setup"
       run: |
