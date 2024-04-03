@@ -9,12 +9,13 @@ name: EPICS CI TEST
 
 # Trigger on pushes and PRs to any branch
 on:
-  push:
-    paths-ignore:
-      - 'documentation/*'
-      - '**/*.html'
-      - '**/*.md'
-  pull_request:
+#   push:
+#     paths-ignore:
+#       - 'documentation/*'
+#       - '**/*.html'
+#       - '**/*.md'
+#   pull_request:
+  workflow_dispatch:
 
 env:
   SETUP_PATH: .ci-local:.ci
