@@ -65,9 +65,16 @@ jobs:
     - name: "Check node version"
       run: |
         yum -y install tree
-        /__e/node20/bin/node --version
-        ldd /__e/node20/bin/node
         tree -L 2 /__e/node20
+        # /__e/node20/bin/node --version
+        # ldd /__e/node20/bin/node
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - name: "check node again"
+      run: |
+        node --version
+        ldd `which node`
     - name: "Build newer Git"
       # actions/checkout@v2 wants git >=2.18
       # centos:7 has 1.8
